@@ -12,6 +12,9 @@ void Robot::RobotInit() {
   m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
   m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+  frc::RobotDrive drive(FrontLeft, BackLeft, FrontRight, BackRight);
+  drive.SetInvertedMotor(frc::RobotDrive::kFrontLeftMotor, true);
+  drive.SetInvertedMotor(frc::RobotDrive::kRearLeftMotor, true);
 }
 
 /**
@@ -58,7 +61,17 @@ void Robot::AutonomousPeriodic() {
 
 void Robot::TeleopInit() {}
 
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic() {
+  //making the robot drive
+  double leftspeed;
+  double rightspeed;
+
+  leftspeed = driver.GetRawAxis(1);
+  rightspeed = driver.GetRawAxis(5);
+
+  m_right.Set(rightspeed);
+  m_left.Set(leftspeed);
+}
 
 void Robot::DisabledInit() {}
 
