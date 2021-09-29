@@ -10,6 +10,8 @@
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/PWMSparkMax.h>
 #include <frc/SpeedControllerGroup.h>
+#include <frc/RobotDrive.h>
+#include <frc/XboxController.h>
 
 class Robot : public frc::TimedRobot {
  public:
@@ -39,4 +41,7 @@ class Robot : public frc::TimedRobot {
   frc::PWMSparkMax BackRight{99};
   frc::SpeedControllerGroup m_right = frc::SpeedControllerGroup(FrontRight, BackRight);
 
+  //controllers
+  frc::XboxController driver{0};
+  frc::XboxController codriver{1};
 };
