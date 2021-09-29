@@ -31,5 +31,12 @@ class Robot : public frc::TimedRobot {
   std::string m_autoSelected;
 
   //drive base
+  frc::PWMSparkMax FrontLeft{99};
+  frc::PWMSparkMax BackLeft{99};
+  frc::SpeedControllerGroup m_left = frc::SpeedControllerGroup(FrontLeft, BackLeft);
+
+  frc::PWMSparkMax FrontRight{99};
+  frc::PWMSparkMax BackRight{99};
+  frc::SpeedControllerGroup m_right = frc::SpeedControllerGroup(FrontRight, BackRight);
 
 };
