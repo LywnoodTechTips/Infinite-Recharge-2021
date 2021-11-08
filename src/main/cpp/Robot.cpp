@@ -62,7 +62,7 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  making the robot drive
+  // making the robot drive
   double leftspeed;
   double rightspeed;
 
